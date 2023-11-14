@@ -1,0 +1,5 @@
+username;first_name;last_name;email;password;catalog_default_locale;user_default_locale;catalog_default_scope;default_category_tree;roles;groups;enabled
+admin;Admin;Admin;admin@reconomia.fr;Reconomia2023!;fr_FR;fr_FR;master;root;ROLE_ADMINISTRATOR;IT support,Manager
+dyoun;Didier;Youn;didier.youn@dnd.fr;dyoun;fr_FR;fr_FR;master;root;ROLE_ADMINISTRATOR,ROLE_AGENCY;IT support,Manager,External
+jdorchies;Jean-christophe;Dorchies;jeanchristophe.dorchies@reconomia.fr;Reconomia2023!;fr_FR;fr_FR;master;root;ROLE_ADMINISTRATOR;IT support,Manager
+meurin;Maxime;Meurin;maxime.eurin@reconomia.fr;Reconomia2023!;fr_FR;fr_FR;master;root;ROLE_ADMINISTRATOR;IT support,Manager

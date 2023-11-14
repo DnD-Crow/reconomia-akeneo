@@ -1,0 +1,5 @@
+locales:
+    en_US:
+        currency: USD
+    fr_FR:
+        currency: EUR

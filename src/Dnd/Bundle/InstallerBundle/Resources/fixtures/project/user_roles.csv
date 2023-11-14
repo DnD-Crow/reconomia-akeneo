@@ -1,0 +1,6 @@
+role;label
+ROLE_ADMINISTRATOR;Administrator
+ROLE_CATALOG_MANAGER;Catalog manager
+ROLE_API_USER;API User
+ROLE_AGENCY;Agence Dn'D
+ROLE_USER;User
