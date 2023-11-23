@@ -1,9 +1,9 @@
 code;label-fr_FR;label-en_US;allowed_extensions;auto_option_sorting;available_locales;date_max;date_min;decimals_allowed;default_metric_unit;metric_family;default_value;type;group;localizable;max_characters;max_file_size;minimum_input_length;negative_allowed;number_max;number_min;reference_data_name;scopable;sort_order;unique;useable_as_grid_filter;validation_regexp;validation_rule;wysiwyg_enabled
 sku;Identifiant;SKU;;;;;;;;;;pim_catalog_identifier;general;0;;;;;;;;0;1;1;1;;;
-capacity_bottle;Capacité (En Bouteille De75Cl);Capacity (In 75Cl Bottle);;;;;;0;LITER;Volume;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
-capacity_kg;Capacité (Kg);Capacity (Kg);;;;;;0;KILOGRAM;Weight;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
-capacity_liter;Capacité (Litre);Capacity (Liter);;;;;;0;LITER;Volume;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
-capacity_drying;Capacite Séchage;Drying Capacity;;;;;;0;KILOGRAM;Weight;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
+capacity_bottle;Capacité (En Bouteille De75Cl);Capacity (In 75Cl Bottle);;;;;;1;LITER;Volume;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
+capacity_kg;Capacité (Kg);Capacity (Kg);;;;;;1;KILOGRAM;Weight;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
+capacity_liter;Capacité (Litre);Capacity (Liter);;;;;;1;LITER;Volume;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
+capacity_drying;Capacite Séchage;Drying Capacity;;;;;;1;KILOGRAM;Weight;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
 climate_class;Choix Classe Climatique;Climate Class Choice;;;;;;;;;;pim_catalog_simpleselect;technical_characteristic;0;;;;;;;;0;1;0;0;;;
 energy_class;Classe Energetique;Energy Class;;;;;;;;;;pim_catalog_simpleselect;general;0;;;;;;;;0;1;0;0;;;
 consumption_water_cycle;Conso Eau Cycle;Consumption Water Cycle;;;;;;1;LITER;Volume;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
@@ -32,7 +32,7 @@ number_of_programs;Nb De Programme;Number of Programs;;;;;;0;;;;pim_catalog_numb
 number_of_cooking_modes;Nb Modes Cuisson;Number of Cooking Modes;;;;;;0;;;;pim_catalog_number;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
 oven_cleaning;Nettoyage Four;Oven Cleaning;;;;;;;;;;pim_catalog_simpleselect;technical_characteristic;0;;;;;;;;0;1;0;0;;;
 sound_level;Niveau Sonore;Sound level;;;;;;0;DECIBEL;Decibel;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
-weight;Poids;Weight;;;;;;0;KILOGRAM;Weight;;pim_catalog_metric;dimension;0;;;;0;;;;0;1;0;0;;;
+weight;Poids;Weight;;;;;;1;KILOGRAM;Weight;;pim_catalog_metric;dimension;0;;;;0;;;;0;1;0;0;;;
 reversible_door;Porte Reversible;Reversible door;;;;;;;;;;pim_catalog_boolean;technical_characteristic;0;;;;;;;;0;1;0;0;;;
 freezer_position;Position Congelateur;Freezer Position;;;;;;;;;;pim_catalog_simpleselect;technical_characteristic;0;;;;;;;;0;1;0;0;;;
 power;Puissance;Power;;;;;;0;WATT;Power;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
@@ -48,7 +48,7 @@ door_opening_type;Type d'ouverture;Door opening Type;;;;;;;;;;pim_catalog_simple
 type_installation;Type Pose;Type Installation;;;;;;;;;;pim_catalog_simpleselect;technical_characteristic;0;;;;;;;;0;1;0;0;;;
 dryer_type;Type Seche Linge;Dryer Type;;;;;;;;;;pim_catalog_simpleselect;technical_characteristic;0;;;;;;;;0;1;0;0;;;
 spin_speed;Vitesse Essorage;Spin Speed;;;;;;0;CUBIC_METER_PER_MINUTE;VolumeFlow;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
-volume;Volume;Volume;;;;;;0;LITER;Volume;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
-volume_freezer;Volume Congelateur;Freezer Volume;;;;;;0;LITER;Volume;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
-volume_refrigerator;Volume Refrigerateur;Refrigerator Volume;;;;;;0;LITER;Volume;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
-volume_total;Volume Total;Total volume;;;;;;0;LITER;Volume;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
+volume;Volume;Volume;;;;;;1;LITER;Volume;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
+volume_freezer;Volume Congelateur;Freezer Volume;;;;;;1;LITER;Volume;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
+volume_refrigerator;Volume Refrigerateur;Refrigerator Volume;;;;;;1;LITER;Volume;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
+volume_total;Volume Total;Total volume;;;;;;1;LITER;Volume;;pim_catalog_metric;technical_characteristic;0;;;;0;;;;0;1;0;0;;;
