@@ -1,2 +1,20 @@
-code;label-fr_FR;label-en_US;parent
-root;Master;;
+code;parent;label-fr_FR;label-en_US
+root;;Root;Root
+gam;root;GAM;GAM
+cave_a_vin;gam;CAVE A VIN;CAVE A VIN
+congelateur;gam;CONGELATEUR;CONGELATEUR
+cuisiniere;gam;CUISINIERE;CUISINIERE
+four_encastrable;gam;FOUR ENCASTRABLE;FOUR ENCASTRABLE
+hotte;gam;HOTTE;HOTTE
+lave_linge;gam;LAVE-LINGE;LAVE-LINGE
+lave_linge_hublot;lave_linge;LAVE-LINGE HUBLOT;LAVE-LINGE HUBLOT
+lave_linge_sechant;lave_linge;LAVE-LINGE SECHANT;LAVE-LINGE SECHANT
+lave_linge_top;lave_linge;LAVE-LINGE TOP;LAVE-LINGE TOP
+lave_vaiselle;gam;LAVE-VAISSELLE;LAVE-VAISSELLE
+lave_vaiselle_encastrable;lave_vaiselle;LAVE-VAISSELLE ENCASTRABLE;LAVE-VAISSELLE ENCASTRABLE
+lave_vaiselle_posable;lave_vaiselle;LAVE-VAISSELLE POSABLE;LAVE-VAISSELLE POSABLE
+refrigerateur;gam;REFRIGERATEUR;REFRIGERATEUR
+seche_linge;gam;SECHE-LINGE;SECHE-LINGE
+multi;root;MULTI;MULTI
+pam;root;PAM;PAM
+tv;root;TV;TV
