@@ -21,15 +21,30 @@ jobs:
         with:
           php-version: '8.1'
 
+      - name: Set up Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: '18.x'
+
       - name: Check if composer.json exists
-        id: check_files
+        id: check_files_composer
         uses: andstor/file-existence-action@v1
         with:
-          files: 'composer.json'
+          files: 'composer.lock'
 
       - name: Run composer install if composer.json exists
-        if: steps.check_files.outputs.files_exists == 'true'
+        if: steps.check_files_composer.outputs.files_exists == 'true'
         run: composer validate --no-check-publish && composer install --prefer-dist --no-progress
+
+      - name: Check if yarn.lock exists
+        id: check_files_yarn
+        uses: andstor/file-existence-action@v1
+        with:
+          files: 'yarn.lock'
+
+      - name: Run yarn install if composer.json exists
+        if: steps.check_files_yarn.outputs.files_exists == 'true'
+        run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarn install && rm -rf public/bundles public/js && php bin/console pim:installer:assets --symlink --clean && PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarn packages:build && rm -rf public/dist && yarn run webpack && rm -rf public/css && yarn run less && yarn run update-extensions
 
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
