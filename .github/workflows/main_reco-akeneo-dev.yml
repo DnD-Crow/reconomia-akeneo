@@ -42,16 +42,16 @@ jobs:
         with:
           files: 'yarn.lock'
 
-      - name: Run yarn install if composer.json exists
-        if: steps.check_files_yarn.outputs.files_exists == 'true'
-        run: |
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarn install
-          php bin/console pim:installer:assets --symlink --clean
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarn packages:build
-          yarn run webpack
-          yarn run less
-          yarn run update-extensions
-
+      #- name: Run yarn install if composer.json exists
+      #  if: steps.check_files_yarn.outputs.files_exists == 'true'
+      #  run: |
+      #    PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarn install
+      #    php bin/console pim:installer:assets --symlink --clean
+      #    PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarn packages:build
+      #    yarn run webpack
+      #    yarn run less
+      #    yarn run update-extensions
+#
       - name: Zip artifact for deployment
         run: zip release.zip ./*
 
