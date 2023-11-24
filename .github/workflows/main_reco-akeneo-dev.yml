@@ -16,15 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # PHP
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.1'
-
-      - name: Set up Node.js version
-        uses: actions/setup-node@v1
-        with:
-          node-version: '18.x'
 
       - name: Check if composer.json exists
         id: check_files_composer
@@ -36,22 +32,25 @@ jobs:
         if: steps.check_files_composer.outputs.files_exists == 'true'
         run: composer validate --no-check-publish && composer install --prefer-dist --no-progress
 
+      # Yarn
+      - name: Set up Node.js version
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: 'yarn'
+
       - name: Check if yarn.lock exists
         id: check_files_yarn
         uses: andstor/file-existence-action@v1
         with:
           files: 'yarn.lock'
 
-      #- name: Run yarn install if composer.json exists
-      #  if: steps.check_files_yarn.outputs.files_exists == 'true'
-      #  run: |
-      #    PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarn install
-      #    php bin/console pim:installer:assets --symlink --clean
-      #    PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarn packages:build
-      #    yarn run webpack
-      #    yarn run less
-      #    yarn run update-extensions
-#
+      - name: Run yarn install if composer.json exists
+        if: steps.check_files_yarn.outputs.files_exists == 'true'
+        run: |
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarn install
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarn packages:build
+
       - name: Zip artifact for deployment
         run: zip release.zip ./*
 
