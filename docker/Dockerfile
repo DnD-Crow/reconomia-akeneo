@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y \
     aspell \
     ghostscript \
     supervisor \
+    vim \
     && rm -rf /var/lib/apt/lists/*
 
 # Configure GD extension
@@ -45,16 +46,19 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # Copy the Apache binary to /usr/local/sbin
 RUN cp /usr/sbin/apache2 /usr/local/sbin/
-
-# Install Node.js and npm
+RUN mkdir -p /var/run/apache2 \
+    && chown -R www-data:www-data /var/run/apache2
+ \
+    # Install Node.js and npm
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install -y nodejs
 
 # Set the working directory to /var/www/html
-WORKDIR /var/www/html
+WORKDIR /home/site/wwwroot
 
 # Clone Akeneo repository
-COPY . /var/www/html
+COPY . /home/site/wwwroot
+RUN chown -R www-data:www-data /home/site/wwwroot
 
 # Install Akeneo dependencies using Composer
 # RUN composer install --prefer-dist --no-dev --no-scripts
@@ -66,8 +70,9 @@ COPY . /var/www/html
 # RUN npm run webpack
 
 # Set up Apache
-RUN a2enmod rewrite proxy proxy_fcgi
+RUN a2enmod rewrite proxy proxy_fcgi expires
 
+COPY docker/apache/envvars /etc/apache2/envvars
 COPY docker/apache/apache2.conf /etc/apache2/apache2.conf
 COPY docker/apache/sites-enabled/akeneo.conf /etc/apache2/sites-available/000-default.conf
 COPY docker/apache/conf-enabled/charset.conf /etc/apache2/conf-enabled/charset.conf
