@@ -60,8 +60,8 @@ jobs:
       - name: Run yarn install if composer.json exists
         if: steps.check_files_yarn.outputs.files_exists == 'true'
         run: |
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarn install
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarn packages:build
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarn install --prefer-offline
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarn packages:build --prefer-offline
 
       - name: Zip artifact for deployment
         run: zip release.zip ./*
