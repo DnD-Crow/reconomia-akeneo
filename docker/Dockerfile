@@ -36,6 +36,8 @@ RUN docker-php-ext-install -j$(nproc) \
     sodium \
     exif \
     gd \
+    pcntl \
+    calendar \
     mbstring
 
 RUN pecl install apcu imagick \
@@ -51,7 +53,8 @@ RUN mkdir -p /var/run/apache2 \
  \
     # Install Node.js and npm
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt-get install -y nodejs
+    && apt-get install -y nodejs \
+    && npm install -g yarn
 
 # Set the working directory to /var/www/html
 WORKDIR /home/site/wwwroot
@@ -59,15 +62,6 @@ WORKDIR /home/site/wwwroot
 # Clone Akeneo repository
 COPY . /home/site/wwwroot
 RUN chown -R www-data:www-data /home/site/wwwroot
-
-# Install Akeneo dependencies using Composer
-# RUN composer install --prefer-dist --no-dev --no-scripts
-
-# Install Node.js dependencies
-# RUN npm install
-
-# Build front-end assets
-# RUN npm run webpack
 
 # Set up Apache
 RUN a2enmod rewrite proxy proxy_fcgi expires
