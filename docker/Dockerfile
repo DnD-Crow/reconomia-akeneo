@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
     ghostscript \
     supervisor \
     vim \
+    openssh-server \
     && rm -rf /var/lib/apt/lists/*
 
 # Configure GD extension
@@ -42,6 +43,11 @@ RUN docker-php-ext-install -j$(nproc) \
 
 RUN pecl install apcu imagick \
     && docker-php-ext-enable apcu imagick
+
+# SSH
+RUN echo "root:Docker!" | chpasswd
+RUN ssh-keygen -A
+COPY docker/sshd_config /etc/ssh/.
 
 # Install Composer globally
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -77,6 +83,9 @@ COPY docker/apache/conf-enabled/serve-cgi-bin.conf /etc/apache2/conf-enabled/ser
 
 # Supervisor configuration
 COPY docker/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# PHP configuration
+COPY docker/php/php.ini /usr/local/etc/php/conf.d/php.ini
 
 # Expose the Apache port
 EXPOSE 80
